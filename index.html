@@ -1,0 +1,458 @@
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134247812-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-134247812-1');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Workflow Graphs: A Computational Model of Collective Task Strategies for 3D Design Software</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <style type="text/css">
+        .normal {
+            font-size: 20px;
+        }
+
+        .center {
+            margin: auto;
+            text-align: left;
+            position: relative;
+            width: 800px;
+        }
+
+        .center_vid {
+            margin: 0 auto;
+            display: block;
+        }
+
+        button {
+            margin: auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        canvas {
+            margin: auto;
+            position: relative;
+            display: block;
+        }
+    </style>
+</head>
+
+<div id="header">
+    <h1>Workflow Graphs: A Computational Model of Collective Task Strategies for 3D Design Software</h1>
+    <div style="clear:both;"></div>
+</div>
+
+<div class="container sec" align="center">
+    <a href="http://cs.kaist.ac.kr/">
+        <img src="img/kaist_logo.jpg" style="height:50px; margin-right: 20px;">
+    </a>
+    <a href="https://research.autodesk.com/">
+        <img src="img/autodesk_research_rgb_stacked_large.png" style="height:40px;  margin-right: 20px;">
+    </a>
+    <a href="https://www.dgp.toronto.edu/">
+        <img src="img/computer-science-university-of-toronto-logo.png" style="height:50px;  margin-right: 20px;">
+    </a>
+</div>
+
+
+<div class="sechighlight" align="center">
+        
+            <div class="instructor" style="width:150px">
+                <a href="https://www.minsukchang.com">
+                    <div class="instructorphoto"><img src="img/minsuk.png"></div>
+                    <div>Minsuk Chang</div>
+                </a>
+                <div>KAIST<br><br></div>
+            </div>
+            <div class="instructor" style="width:150px">
+                <a href="http://www.benlafreniere.ca/">
+                    <div class="instructorphoto"><img src="img/ben.png"></div>
+                    <div>Ben Lafreniere</div>
+                </a>
+                <div>(prev. Autodesk Research) Chatham Labs</div>
+            </div>                
+            <div class="instructor" style="width:150px">
+                <a href="http://juhokim.com">
+                    <div class="instructorphoto"><img src="img/juho.jpg"></div>
+                    <div style="width:150px">Juho Kim</div>
+                </a>
+                <div>KAIST<br><br></div>
+            </div>                
+            <div class="instructor" style="width:150px">
+                <a href="https://www.autodeskresearch.com/people/george-fitzmaurice">
+                    <div class="instructorphoto"><img src="img/george.png"></div>
+                    <div>George Fitzmaurice</div>
+                </a>
+                <div>Autodesk Research<br><br></div>
+            </div>
+            <div class="instructor" style="width:150px">
+                <a href="https://tovigrossman.com">
+                    <div class="instructorphoto"><img src="img/tovi2.png"></div>
+                    <div style="width:150px">Tovi Grossman</div>
+                </a>
+                <div>University of Toronto<br><br></div>
+            </div> 
+    </div>
+
+<div class="container sec"> <!-- For Video if we have one... -->
+    
+    <h2>Abstract</h2>
+    <div id="coursedesc" style="font-size:18px">
+    </div>
+
+</div>
+<!--
+<div class="sechighlight">
+
+        <div align="center">
+                <iframe width="640" height="360" align="middle" src=""
+                    frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+            </div>
+    
+</div>
+-->
+
+<div class="sechighlight">
+    <div class="container sec" style="font-size:18px">
+        <h2>Experiment 1 - how do people use traditional video interfaces?</h2>
+        <div class="row">
+        
+            <div class="col-md-7">
+                <p>
+                    In this experiment, we aimed to understand how users currently interact with how-to videos for physical tasks. 
+                    Specifically, to understand different types of navigation objectives and user intentions, 
+                    we examined when users broke away from their tasks and actively control the video using a conventional 
+                    mouse-based video navigation interface like YouTube (on the right).
+                </p>
+
+                <h3>Types of Pause Interactions</h3>
+                <p>
+                    <b>Pace Control Pause:</b> The most common type of pause was a pause to gain more time. 
+                    This happens when the user understands the video content but fails to match the pace of the video.<!-- With this pause, 
+                    the user is trying to finish one step before moving onto the next. Unlike other types of pauses, in a pace control pause, 
+                    the user is usually detached from the video, while concentrating on the physical task. 
+                    Once users are caught up to the video using pace control pauses, they often end the pause by pressing play and 
+                    without performing any other type of video navigation.-->
+                </p>
+                <p>
+                    <b>Content Alignment Pause:</b> The second type of pause is a pause to compare what’s in the video with what’s in the hands of the user. 
+                    This pause precedes the user checking to make sure that their state is similar to that of the video. <!-- For example, after the pause, 
+                    users say “I’m just trying to see if this is what he—the video instructor—has done.” or “I need to see if this is it.” 
+                    while making the comparison between what’s in the video and what’s in the hands of the user. Users often observe the 
+                    paused video frame several times during these pauses. During the content alignment pauses,the user attention is split between the video and the physical task.-->
+                </p>
+
+            </div>
+            <div class="col-md-5">
+                <img src="img/youtube.png" width="100%" />
+            </div>
+        
+            <div class="col-md-12">
+                <div>
+                <p>
+                    <b>Video Control Pause:</b> The final type of pause we observed is a pause for further video control. 
+                    In this case, the user pauses the video and searches for the next navigation target 
+                    point on the timeline by either guess-clicking, or scrubbing and examining the thumbnails. <!--In this use case, 
+                    the user’s attention is entirely in the video. -->
+                </p>
+                <h3>Types of Jumping Interactions</h3>
+                <p>
+                    <b>Reference Jump:</b> The first type of jump we observed is a reference jump. 
+                    In this case, the user jumps backwards in the video to remind themselves of something they saw in the past. 
+                    <!--Users typically only need to see a still image of the video for this jump.
+                    Usually a forward jump back to the original position is followed by a reference jump to continue where they left off.-->
+                </p>
+                <p>
+                    <b>Replay Jump:</b> A replay jump is a different form of backward jump, 
+                    where the user wants to re-watch a segment of the video again. 
+                    This jump happens when the user needs to get a better understanding, clarify a possible mistake, 
+                    or to assure that the current understanding is correct. This jump if often followed by a play or a pause interaction.
+                </p>
+                <p>
+                    <b>Skip Jump: </b>A skip jump is a type of forward jump where the user wants to skip content that is less interesting, 
+                    like the introduction of the channel or the personal life of theYouTuber. 
+                    <!--When the goal is to skip introductory content, the target is almost always “the beginning of the actual tutorial”. 
+                    Since the user cannot tell where exactly “the actual tutorial” begins, skip jumps happen in multiples. 
+                    This forward jump often is followed by another skip jump or a play interaction.-->
+                </p>
+                <p>
+                    <b>Peek Jump:</b>The second type of forward jump is a peek jump, 
+                    where the user wants to skip ahead to see what the user should expect after performing one or a number of steps. 
+                    This happens when users want to check the intermediate or the final result in order to prepare and also check 
+                    if the user is on the right track. <!--The goal is not to skip the current step, but rather to help by anticipating 
+                    future steps. A peek jump is often followed by a jump back to the original position in the video.-->
+                </p>
+            </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container sec" style="font-size:18px">
+    <h2>Experiment 2 - how do people use a voice-enabled video interface?</h2>
+    <div class="row">
+        
+        <div class="col-md-4">
+            <img src="img/probe1.jpg" width="100%" />
+        </div>
+        <div class="col-md-8"> 
+            <p></p>
+        
+        <p>Results of our first study show that people often stop and jump within the videos, which requires frequent context switches. 
+            To understand what differences might be observed in users’ thoughts and preferences of voice interactions in navigating how-to videos, 
+            we built a voice-enabled video player as a research probe. This research probe served as a “tools for design and understanding” 
+            not a prototype interface to suggest new interaction techniques. We used our research probe as an apparatus to observe and elicit 
+            similarities and differences in user behavior in relation to the different types of pauses and jumps observed with a traditional mouse-based interface.        
+        </p>
+        <p>Our research probe (on the left) allows users to select a YouTube video of their choice and control it with voice. 
+                The interface also indicates when it is listening and transcribes commands in real time to provide visual feedback to the user. 
+                For example, “I heard: rewind 20 seconds”. We also observed that users use the word “stop” to indicate a higher sense of urgency, 
+                or a need to navigate to a very specific point in the video.
+        </p>
+                
+        <p><a href="https://minsukchang.com/voiceyoutubedemo">Link to the demo</a></p>
+        </div>
+        
+
+        <div class="col-md-12">
+
+            <p></p>
+            <div><b>General Impressions</b></div>
+            <p>
+                Participants found the concept of using voice to navigate how-to videos useful for their tasks. 
+                We also noticed users would “stop” or “pause” the video before jumps a lot more often while using voice user interfaces. 
+                Jumps with specific references like “go back 20 seconds” is dependent on both the current position and the target, 
+                and without the pause the current position would keep changing, resulting inconveniences to adjust the interval or 
+                make multiple subsequent jumps. With the mouse interactions, in contrast, users are only specifying the target position and not the origin.
+            </p>
+            <!--<div><b>Types of Pause Interactions</b></div>
+            <p>
+                We observed that the command “stop” is used mostly for video control pauses 
+                (18 out of 25 “stop”s) where the command was followed by a jump. In contrast, “stop video” was used mostly 
+                for content align- ment pauses, where the command was followed by a play command (13 out of 15 “stop video”s).
+                We found that both “pause” and “pause video” were frequently used for content alignment jumps and pace control jumps, 
+                ”pause” was used 24 times out of 43, while ”pause video” was used 10 times out of 12 for these jumps.
+            </p>
+            <div><b>Types of Jump Interactions</b> </div>
+            <p>
+                Two frequently used commands for backward jumps were “go back” and “rewind”. 
+                In this experiment, we observed 23 replay jumps and 28 reference jumps. 
+                We noticed for replay jumps, users use less concrete commands than for reference jumps, such as, “start from beginning”, 
+                “let me see that again”. “go back about 30 seconds”, “go back just a bit”, “go back by little”, “go back to the beginning”.
+                However, for reference jumps, users tend to be more spe- cific, and repeat multiple times to find the exact target,
+                using commands like “go back 30 seconds” and “go to 2 minute mark”. 
+                Users also repeat concrete backward commands to find a specific desired position.
+                We could not observe any different linguistic pattern between skip jumps and peek jumps.
+            </p>-->
+            <p>
+
+            </p>
+        </div>
+    </div>
+    <br>
+
+</div>
+
+<div class="sechighlight">
+    <div class="container sec" style="font-size:18px">
+        <h2>Experiment 3 - how do people "want to" use a voice-enabled video interface?</h2>
+        <div class="row">
+            <!-- <div class="col-md-4">
+                <img src="img/woz.jpg" width="100%" />
+            </div>-->
+            <div class="col-md-12">
+                <div>
+                    <p>
+                        From the previous study, we learned that users’ navigation intents affect their linguistic choices for command utterances.
+                        We also observed that commonly supported voice commands are limited to simple words, 
+                        that it can be difficult for users to express their intents with a restrictive command space, 
+                        and that it is difficult for systems to understand the intents. For example, different backward jump intents for “stop” and
+                        “pause” can only be understood in context of other commands before and after the stop, 
+                        specifically analyzing preceding and succeeding commands and user goals, which is impractical in application settings 
+                        where users need systems to understand the user intents in real time.
+                    </p>
+                    <p>
+                        To inform how to disambiguate voice commands and corresponding user intents for navigating how-to videos, 
+                        we conducted a Wizard-of-Oz experiment to learn how users would naturally converse for video navigation 
+                        in the absence of these constraints.
+                    </p>
+                </div>
+                <h3>Findings</h3>
+                <div>
+                    <b>Challenge 1 - Characteristics of How-to Videos</b> </div>
+                    <p>Because of the sequential nature of the video (there is the concept of an unknown future), 
+                    users often make a guess to navigate forward in the video, or they have to watch less relevant or less interesting segments.
+                </p>
+                    <div><b>Challenge 2 - Voice Inherent Problems</b></div>
+                <p>When participants used a specific time interval for jumps, 
+                    it often required multiple adjustments to navigate to the target even when the participant had a good sense of where the target was. 
+                    In this case, command parsing delays become an important user interface limitation.
+                </p>
+                
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container sec" style="font-size:18px">
+    <div class="row">
+        <div class="col-md-12">
+        <h2>Summary</h2>
+        <div>
+           <p> Our study and interview results highlight the challenges, opportunities, and user expectations of using voice interfaces for video tutorials.
+            We first summarize the user challenges of adapting to a VUI from a GUI when learning physical tasks with video tutorials. 
+            We then summarize how our research methodology of designing a series of experiments in progression can be extended to 
+            designing VUI for other applications and domains.
+        </p>
+        </div>
+        <div>
+            <h3><b>Transitioning from GUI to VUI</b></h3>
+            <p>
+            <b>Mouse vs Voice.</b> We found voice interfaces require an initial pause while issuing subsequent commands. 
+            For example, when using voice input in Study 2, users issued a pause command before every rewind command.
+            In contrast, when using the traditional mouse interface, users never paused the video before skipping to another point. 
+            We think this is due to the time it takes for the user to speak the voice command and for the system to process it.
+            Also, the target is directly specified with mouse (or touch) but with voice the target is often specified relative to the current position of the video. 
+            For example, if the user does not pause the video before jumping, the original reference keeps moving, 
+            and the interval they had thought of will not get them to the point they intended. 
+            As a result, the larger consequence is that voice-based interactions require more steps to achieve the same objective (i.e., pause + jump) 
+            than mouse-based interactions do (i.e., click).</p>
+            <p>
+            <b>Uncertainty from Unseen Content.</b> When trying to navigate a video tutorial using voice, users make more concrete references to the past, 
+            whereas users have challenges describing later part of the video. For traditional video interfaces, 
+            scrubbing and clicking around are often used a solution to quickly peeking into the future. 
+            However, for voice interfaces, such a solution does not exist yet. 
+            Handling this uncertainty is an important design issue which would improve the usability of voice interactions for videos.
+            Recognition of Speech Input and Command Learnability. While the concept of using voice to navigate how-to videos is generally welcomed, 
+            participants also reported well-known problems of voice user interfaces. Speech recognition does not always work as expected, 
+            especially if users have accents or are in a noisy environment. 
+            In Study 2, nine participants also reported difficulty in figuring out the available commands. 
+            All participants showed frustration when the system did not respond to their command. 
+            Usability of VUI suffers due to relatively poor recognition, poor learnability and discoverability of available commands, and lack of feedback.  
+            </p>
+        </div>
+        <div>
+            <h3><b>Progression of Experiment Designs</b></h3>
+            In order to understand a user-centric design of voice interfaces for video tutorials, 
+            we carefully designed the three studies posing users in three scenarios in progression. 
+            Starting from how users use the current interface without voice interaction, to a basic adoption of voice interaction, 
+            to a Wizard-of-Oz interface with “ideal” voice interactions. We were able to create a taxonomy of current interactions, 
+            classify user intents in video navigation, and understand user challenges and opportunities for eliciting design recommendations.
+            We believe this progression of experiment design is generalizable to understanding how to design voice interactions 
+            for new applications or other domains like driving and exercising. For example, when understanding how to design 
+            voice interactions while driving, the same progression of studies could be just as effective. Understanding 
+            the current practices and needs of voice interactions while driving, and then using a design probe using a voice interface probe to
+            understand opportunities and challenges, and then carrying out a Wizard-of-Oz study to elicit ideal interaction scenarios
+            </p>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div class="sechighlight">
+    <div class="container sec" style="font-size:18px">
+        
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Design Recommendations</h2>    
+            <div>
+                   <p> Based on our findings and understanding from the three studies, 
+                    we propose the following recommendations for designing voice based navigation for how-to videos.</p>
+            </div>
+
+                <div>
+                <b>Support Conversational Strategies</b> 
+            </div>
+            <p>
+                Support sequence expansions and command queues as both are strategies users often use. 
+                For example, supporting users to perform a single command multiple times in a row by recognizing “again” 
+                following “go back 5 seconds”, and supporting users to place multiple commands in one utterance 
+                like “go to 2 minutes and 4 second mark and pause” would be useful.
+            </p>
+            <div>
+                <b>Support Iterative Refinements of Commands</b> 
+            </div>
+            <p>
+                Users often need multiple tries to find the intended navigation target. 
+                It is because a) what users remember can be different from the part they are looking for or vice versa, 
+                b) sometimes users don’t remember, and c) sometimes users remember but don’t know the exact vocabulary 
+                like the names of knitting techniques and tools. Good examples are support for descriptive commands and keyword search in transcripts.
+            </p>
+            <div>
+                <b>Support Interactions with User Context</b> 
+            </div>
+            <p>
+                Designing voice commands for how-to videos is not about supporting a single command, 
+                but understanding the higher level user intent behind the utterance is crucial. 
+                We identified all seven interaction intents (pace control pause, content alignment pause, 
+                video control pause, reference jump, replay jump, skip jump, and peek jump) that can be supported. 
+                One possible solution in distinguishing them is to set up the command vocabulary such that each intent has its unique keyword.
+            </p>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container sec" style="font-size:18px">
+    <div class="row">   
+
+        <div class="col-md-5">
+                    <h2>GI 2020 Paper</h2>
+                    <p> DL link </p>
+                    <p> Reviews </p>
+                    <h2>GI 2020 Slides </h2>
+                    <p></p>
+        </div>
+        <div class="col-md-7">
+            <h2>Bibtex</h2>
+            <pre style="font-size:12px;"> Available soon </pre>
+        </div>
+
+    </div>
+    <hr class="style1">
+
+
+
+
+
+
+<div class="sechighlight"></div>
+    <div class="container sec">
+        <div id="footer">
+            This research was supported by <a href="https://research.adobe.com"> Adobe Research. </a>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
