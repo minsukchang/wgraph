@@ -60,7 +60,7 @@
 </head>
 
 <div id="header">
-    <h1>Workflow Graphs: A Computational Model of Collective Task Strategies for 3D Design Software</h1>
+    <h1>Workflow Graphs: <br> A Computational Model of Collective Task Strategies <br> for 3D Design Software</h1>
     <div style="clear:both;"></div>
 </div>
 
@@ -78,7 +78,6 @@
 
 
 <div class="sechighlight" align="center">
-        
             <div class="instructor" style="width:150px">
                 <a href="https://www.minsukchang.com">
                     <div class="instructorphoto"><img src="img/minsuk.png"></div>
@@ -115,166 +114,88 @@
                 <div>University of Toronto<br><br></div>
             </div> 
     </div>
+</div>
 
 <div class="container sec"> <!-- For Video if we have one... -->
-    
-    <h2>Abstract</h2>
-    <div id="coursedesc" style="font-size:18px">
+    <h3 align="center">Video Preview</h2>
+    <div align="center">
+            <iframe width="640" height="360" align="middle" src="wgraph_gi2020.mp4"
+                frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
     </div>
-
 </div>
-<!--
-<div class="sechighlight">
-
-        <div align="center">
-                <iframe width="640" height="360" align="middle" src=""
-                    frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-            </div>
-    
-</div>
--->
 
 <div class="sechighlight">
-    <div class="container sec" style="font-size:18px">
-        <h2>Experiment 1 - how do people use traditional video interfaces?</h2>
-        <div class="row">
+    <div class="container sec"> 
         
+        <h2>Abstract</h2>
+        <div id="coursedesc" style="font-size:18px">
+            This paper introduces Workflow graphs, or W-graphs, which encode how the approaches taken 
+            by multiple users performing a fixed 3D design task converge and diverge from one another. 
+            The graph’s nodes represent equivalent intermediate task states across users, and directed edges represent 
+            how a user moved between these states, inferred from screen recording videos, command log data, and task content history. 
+            The result is a data structure that captures alternative methods for performing sub-tasks (e.g., modeling the legs of a
+            chair) and alternative strategies of the overall task. As a case study, we describe and exemplify a computational 
+            pipeline for building W-graphs using screen recordings, command logs, and 3D model
+            snapshots from an instrumented version of the Tinkercad 3D modeling application, and present graphs built for two sample tasks.
+            We also illustrate how W-graphs can facilitate novel user interfaces
+            with scenarios in workflow feedback, on-demand task guidance, and instructor dashboards.
+        </div>
+
+    </div>
+</div>
+
+
+    <div class="container sec" style="font-size:18px">
+        <h2>Workflow Graphs Concept</h2>
+        <div class="row">        
             <div class="col-md-7">
                 <p>
-                    In this experiment, we aimed to understand how users currently interact with how-to videos for physical tasks. 
-                    Specifically, to understand different types of navigation objectives and user intentions, 
-                    we examined when users broke away from their tasks and actively control the video using a conventional 
-                    mouse-based video navigation interface like YouTube (on the right).
+                In this research, we investigate how multiple demonstrations of a fixed task can be captured and 
+                represented in a workflow graph (W-graph) (Figure 1).
+                The idea is to automatically discover the different means of accomplishing a goal from the interaction traces 
+                of multiple users, and to encode these in a graph representation. 
+                The graph thus represents diverse understanding of the task, opening up arange of possible applications.
                 </p>
-
-                <h3>Types of Pause Interactions</h3>
-                <p>
-                    <b>Pace Control Pause:</b> The most common type of pause was a pause to gain more time. 
-                    This happens when the user understands the video content but fails to match the pace of the video.<!-- With this pause, 
-                    the user is trying to finish one step before moving onto the next. Unlike other types of pauses, in a pace control pause, 
-                    the user is usually detached from the video, while concentrating on the physical task. 
-                    Once users are caught up to the video using pace control pauses, they often end the pause by pressing play and 
-                    without performing any other type of video navigation.-->
-                </p>
-                <p>
-                    <b>Content Alignment Pause:</b> The second type of pause is a pause to compare what’s in the video with what’s in the hands of the user. 
-                    This pause precedes the user checking to make sure that their state is similar to that of the video. <!-- For example, after the pause, 
-                    users say “I’m just trying to see if this is what he—the video instructor—has done.” or “I need to see if this is it.” 
-                    while making the comparison between what’s in the video and what’s in the hands of the user. Users often observe the 
-                    paused video frame several times during these pauses. During the content alignment pauses,the user attention is split between the video and the physical task.-->
-                </p>
-
             </div>
             <div class="col-md-5">
-                <img src="img/youtube.png" width="100%" />
+                <img src="figures/ChairGraph-03.png" width="100%" />
             </div>
         
             <div class="col-md-12">
                 <div>
-                <p>
-                    <b>Video Control Pause:</b> The final type of pause we observed is a pause for further video control. 
-                    In this case, the user pauses the video and searches for the next navigation target 
-                    point on the timeline by either guess-clicking, or scrubbing and examining the thumbnails. <!--In this use case, 
-                    the user’s attention is entirely in the video. -->
-                </p>
-                <h3>Types of Jumping Interactions</h3>
-                <p>
-                    <b>Reference Jump:</b> The first type of jump we observed is a reference jump. 
-                    In this case, the user jumps backwards in the video to remind themselves of something they saw in the past. 
-                    <!--Users typically only need to see a still image of the video for this jump.
-                    Usually a forward jump back to the original position is followed by a reference jump to continue where they left off.-->
-                </p>
-                <p>
-                    <b>Replay Jump:</b> A replay jump is a different form of backward jump, 
-                    where the user wants to re-watch a segment of the video again. 
-                    This jump happens when the user needs to get a better understanding, clarify a possible mistake, 
-                    or to assure that the current understanding is correct. This jump if often followed by a play or a pause interaction.
-                </p>
-                <p>
-                    <b>Skip Jump: </b>A skip jump is a type of forward jump where the user wants to skip content that is less interesting, 
-                    like the introduction of the channel or the personal life of theYouTuber. 
-                    <!--When the goal is to skip introductory content, the target is almost always “the beginning of the actual tutorial”. 
-                    Since the user cannot tell where exactly “the actual tutorial” begins, skip jumps happen in multiples. 
-                    This forward jump often is followed by another skip jump or a play interaction.-->
-                </p>
-                <p>
-                    <b>Peek Jump:</b>The second type of forward jump is a peek jump, 
-                    where the user wants to skip ahead to see what the user should expect after performing one or a number of steps. 
-                    This happens when users want to check the intermediate or the final result in order to prepare and also check 
-                    if the user is on the right track. <!--The goal is not to skip the current step, but rather to help by anticipating 
-                    future steps. A peek jump is often followed by a jump back to the original position in the video.-->
-                </p>
-            </div>
+                    <p>
+                    </p>
+                </div>
             </div>
 
         </div>
     </div>
-</div>
 
 
+    <div class="sechighlight">
 <div class="container sec" style="font-size:18px">
-    <h2>Experiment 2 - how do people use a voice-enabled video interface?</h2>
+    <h2>How to Build a Workflow Graph</h2>
     <div class="row">
         
         <div class="col-md-4">
-            <img src="img/probe1.jpg" width="100%" />
+            <img src="" width="100%" />
         </div>
         <div class="col-md-8"> 
             <p></p>
         
-        <p>Results of our first study show that people often stop and jump within the videos, which requires frequent context switches. 
-            To understand what differences might be observed in users’ thoughts and preferences of voice interactions in navigating how-to videos, 
-            we built a voice-enabled video player as a research probe. This research probe served as a “tools for design and understanding” 
-            not a prototype interface to suggest new interaction techniques. We used our research probe as an apparatus to observe and elicit 
-            similarities and differences in user behavior in relation to the different types of pauses and jumps observed with a traditional mouse-based interface.        
-        </p>
-        <p>Our research probe (on the left) allows users to select a YouTube video of their choice and control it with voice. 
-                The interface also indicates when it is listening and transcribes commands in real time to provide visual feedback to the user. 
-                For example, “I heard: rewind 20 seconds”. We also observed that users use the word “stop” to indicate a higher sense of urgency, 
-                or a need to navigate to a very specific point in the video.
-        </p>
                 
-        <p><a href="https://minsukchang.com/voiceyoutubedemo">Link to the demo</a></p>
+
         </div>
         
 
         <div class="col-md-12">
-
             <p></p>
-            <div><b>General Impressions</b></div>
-            <p>
-                Participants found the concept of using voice to navigate how-to videos useful for their tasks. 
-                We also noticed users would “stop” or “pause” the video before jumps a lot more often while using voice user interfaces. 
-                Jumps with specific references like “go back 20 seconds” is dependent on both the current position and the target, 
-                and without the pause the current position would keep changing, resulting inconveniences to adjust the interval or 
-                make multiple subsequent jumps. With the mouse interactions, in contrast, users are only specifying the target position and not the origin.
-            </p>
-            <!--<div><b>Types of Pause Interactions</b></div>
-            <p>
-                We observed that the command “stop” is used mostly for video control pauses 
-                (18 out of 25 “stop”s) where the command was followed by a jump. In contrast, “stop video” was used mostly 
-                for content align- ment pauses, where the command was followed by a play command (13 out of 15 “stop video”s).
-                We found that both “pause” and “pause video” were frequently used for content alignment jumps and pace control jumps, 
-                ”pause” was used 24 times out of 43, while ”pause video” was used 10 times out of 12 for these jumps.
-            </p>
-            <div><b>Types of Jump Interactions</b> </div>
-            <p>
-                Two frequently used commands for backward jumps were “go back” and “rewind”. 
-                In this experiment, we observed 23 replay jumps and 28 reference jumps. 
-                We noticed for replay jumps, users use less concrete commands than for reference jumps, such as, “start from beginning”, 
-                “let me see that again”. “go back about 30 seconds”, “go back just a bit”, “go back by little”, “go back to the beginning”.
-                However, for reference jumps, users tend to be more spe- cific, and repeat multiple times to find the exact target,
-                using commands like “go back 30 seconds” and “go to 2 minute mark”. 
-                Users also repeat concrete backward commands to find a specific desired position.
-                We could not observe any different linguistic pattern between skip jumps and peek jumps.
-            </p>-->
-            <p>
 
-            </p>
         </div>
     </div>
     <br>
 
+    </div>
 </div>
 
 <div class="sechighlight">
